@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thmeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Getting Started</title>
+</head>
+<body>
+    <p th:text="'Hello, ' + ${name} + '!'" />
+    <form action="#" th:action="@{/getAddress}" th:object="${addrsearch}" method="post">
+        <input type="text" th:field="*{keywd}" />
+        <input type="submit" value="Submit" />
+    </form>
+    <table>
+        <tbody>
+        <tr th:each="addr: ${addrs}">
+            <td th:text="${addr.zipNo}" />
+            <td th:text="${addr.roadAddr}" />
+            <td th:text="${addr.bdNm}" />
+            <td th:text="${addr.jibunAddr}" />
+            <td>
+                <form method="POST" th:action="@{/select(address=${addr.roadAddr})}">
+                    <button type="submit" name="submit" value="value" class="link-button">select</button>
+                </form> |
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>

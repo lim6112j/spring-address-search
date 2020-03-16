@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thmeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title> address section</title>
+</head>
+<body>
+<p th:text="'selected address is , ' + ${address} + '!'" />
+<form action="#" th:action="@{/save}" th:object="${detailAddr}" method="POST">
+    <input type="text" th:field="*{detail}" />
+    <input type="text" th:value=${address} th:field="*{address}"/>
+    <input type="submit" value="Submit" />
+</form>
+<!--<table>-->
+<!--    <tbody>-->
+<!--    <tr th:each="addr: ${addrs}">-->
+<!--        <td th:text="${addr.get('zipNo')}" />-->
+<!--        <td th:text="${addr.get('roadAddr')}" />-->
+<!--        <td th:text="${addr.get('bdNm')}" />-->
+<!--        <td th:text="${addr.get('jibunAddr')}" />-->
+<!--        <form method="POST" th:action="@{/select(address=${addr})}">-->
+<!--            <button type="submit" name="submit" value="value" class="link-button">EDIT</button>-->
+<!--        </form> |-->
+<!--    </tr>-->
+<!--    </tbody>-->
+<!--</table>-->
+</body>
+</html>
